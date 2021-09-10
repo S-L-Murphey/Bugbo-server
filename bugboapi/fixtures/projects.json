@@ -1,0 +1,18 @@
+[
+    {
+        "model": "bugboapi.project",
+        "pk": 1,
+        "fields": {
+            "name": "Software Project",
+            "description": "Admins can plan, track, and manage development projects in Bugbo."
+        }
+    },
+    {
+        "model": "bugboapi.project",
+        "pk": 2,
+        "fields": {
+            "name": "Mobile Fixes",
+            "description": "Admins can assign multiple developers and tickets to boards. With CRUD functionality on all board details."
+        }
+    }
+]

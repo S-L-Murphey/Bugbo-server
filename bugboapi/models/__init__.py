@@ -9,5 +9,7 @@ from .bug_owner import BugOwner
 from .tag import Tag
 from .bug_tag import BugTag
 from .comment import Comment
+from .bug_priority import BugPriority
+from .bug_type import BugType
 
 

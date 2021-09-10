@@ -1,0 +1,29 @@
+[
+    {
+        "model": "bugboapi.comment",
+        "pk": 1,
+        "fields": {
+            "bug": 1,
+            "commentor": 5,
+            "content":"Ex qui consequat consequat sunt nisi laborum excepteur eiusmod sint. Ut laboris mollit est incididunt duis ex proident consequat culpa adipisicing adipisicing duis occaecat."
+        }
+    },
+    {
+        "model": "bugboapi.comment",
+        "pk": 2,
+        "fields": {
+            "bug": 2,
+            "commentor": 6,
+            "content": "Commodo do ad laborum in amet fugiat. Lorem excepteur cillum nostrud et aliqua enim tempor excepteur excepteur anim excepteur elit. Ea veniam consequat veniam dolor esse veniam aliqua."
+        }
+    },
+    {
+        "model": "bugboapi.comment",
+        "pk": 3,
+        "fields": {
+            "bug": 3,
+            "commentor": 7,
+            "content": "Reprehenderit ipsum consequat sint dolor proident. Minim dolor consequat dolore exercitation aliquip magna nulla commodo enim. Duis ut Lorem dolor fugiat aliqua non."
+        }
+    }
+]

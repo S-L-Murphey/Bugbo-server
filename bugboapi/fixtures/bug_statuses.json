@@ -1,0 +1,30 @@
+[
+    {
+        "model": "bugboapi.bugstatus",
+        "pk": 1,
+        "fields": {
+            "name": "Done"
+        }
+    },
+    {
+        "model": "bugboapi.bugstatus",
+        "pk": 2,
+        "fields": {
+            "name": "In Progress"
+        }
+    },
+    {
+        "model": "bugboapi.bugstatus",
+        "pk": 3,
+        "fields": {
+            "name": "To-Do"
+        }
+    },
+    {
+        "model": "bugboapi.bugstatus",
+        "pk": 4,
+        "fields": {
+            "name": "Backburner"
+        }
+    }
+]
