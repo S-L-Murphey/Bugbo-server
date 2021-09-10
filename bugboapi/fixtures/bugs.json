@@ -1,0 +1,41 @@
+[
+    {
+        "model": "bugboapi.bug",
+        "pk": 1,
+        "fields": {
+            "title": "This is an issue of type: Bug",
+            "description":"All users can create tickets. They can represent bugs, tasks, or improvements.",
+            "entry_date": "2021-07-07",
+            "creator": 7,
+            "status": 1,
+            "priority": 1,
+            "type": 1
+        }
+    },
+    {
+        "model": "bugboapi.bug",
+        "pk": 2,
+        "fields": {
+            "title": "This is an issue of type: Improvement",
+            "description":"Admins can add multiple tickets to one project. They can also perform CRUD on tickets.",
+            "entry_date": "2021-09-01",
+            "creator": 7,
+            "status": 2,
+            "priority": 2,
+            "type": 2
+        }
+    },
+    {
+        "model": "bugboapi.bug",
+        "pk": 3,
+        "fields": {
+            "title": "This is an issue of type: Task",
+            "description":"Each ticket can be given a list of tags and a single priority.",
+            "entry_date": "2021-09-01",
+            "creator": 6,
+            "status": 3,
+            "priority": 3,
+            "type": 3
+        }
+    }
+]

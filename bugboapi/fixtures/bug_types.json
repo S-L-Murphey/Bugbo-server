@@ -1,0 +1,23 @@
+[
+    {
+        "model": "bugboapi.bugtype",
+        "pk": 1,
+        "fields": {
+            "label": "Bug"
+        }
+    },
+    {
+        "model": "bugboapi.bugtype",
+        "pk": 2,
+        "fields": {
+            "label": "Task"
+        }
+    },
+    {
+        "model": "bugboapi.bugtype",
+        "pk": 3,
+        "fields": {
+            "label": "Improvement"
+        }
+    }
+]

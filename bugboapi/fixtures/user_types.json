@@ -1,0 +1,26 @@
+[
+    {
+        "model": "bugboapi.usertype",
+        "pk": 1,
+        "fields": {
+            "name": "Administrator",
+            "description": "Admins have global permissions with CRUD on all features."
+        }
+    },
+    {
+        "model": "bugboapi.usertype",
+        "pk": 2,
+        "fields": {
+            "name": "Developer",
+            "description": "Devs are able to create and update tickets. They can update projects. They have less permissions than admins but more than testers."
+        }
+    },
+    {
+        "model": "bugboapi.usertype",
+        "pk": 3,
+        "fields": {
+            "name": "Tester",
+            "description": "Testers can only create tickets and create, edit, and delete comments."
+        }
+    }
+]

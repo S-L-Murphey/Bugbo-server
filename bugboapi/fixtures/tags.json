@@ -1,0 +1,31 @@
+[
+    {
+        "model": "bugboapi.tag",
+        "pk": 1,
+        "fields": {
+            "name": "Server"
+        }
+    },
+    {
+        "model": "bugboapi.tag",
+        "pk": 2,
+        "fields": {
+            "name": "Web"
+        }
+    },
+    {
+        "model": "bugboapi.tag",
+        "pk": 3,
+        "fields": {
+            "name": "Login"
+        }
+    },
+    {
+        "model": "bugboapi.tag",
+        "pk": 4,
+        "fields": {
+            "name": "Mobile"
+        }
+    }
+
+]

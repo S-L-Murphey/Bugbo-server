@@ -1,0 +1,18 @@
+[
+    {
+        "model": "bugboapi.projectuser",
+        "pk": 1,
+        "fields": {
+            "user": 5,
+            "project": 1
+        }
+    },
+    {
+        "model": "bugboapi.projectuser",
+        "pk": 2,
+        "fields": {
+            "user": 6,
+            "project": 2
+        }
+    }
+]

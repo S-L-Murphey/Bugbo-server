@@ -1,0 +1,26 @@
+[
+    {
+        "model": "bugboapi.bugproject",
+        "pk": 1,
+        "fields": {
+            "project": 1,
+            "bug": 1
+        }
+    },
+    {
+        "model": "bugboapi.bugproject",
+        "pk": 2,
+        "fields": {
+            "project": 2,
+            "bug": 2
+        }
+    },
+    {
+        "model": "bugboapi.bugproject",
+        "pk": 3,
+        "fields": {
+            "project": 2,
+            "bug": 3
+        }
+    }
+]

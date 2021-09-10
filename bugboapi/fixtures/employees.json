@@ -1,0 +1,42 @@
+[
+    {
+        "model": "bugboapi.employee",
+        "pk": 4,
+        "fields": {
+            "user": 5,
+            "bio": "Admin Extraordinaire",
+            "avatar": "",
+            "user_type": 1
+        }
+    },
+    {
+        "model": "bugboapi.employee",
+        "pk": 5,
+        "fields": {
+            "user": 6,
+            "bio": "I write code",
+            "avatar": "",
+            "user_type": 2
+        }
+    },
+    {
+        "model": "bugboapi.employee",
+        "pk": 6,
+        "fields": {
+            "user": 7,
+            "bio": "Developer Class users have same abilities as Testers and them some.",
+            "avatar": "",
+            "user_type": 2
+        }
+    },
+    {
+        "model": "bugboapi.employee",
+        "pk": 7,
+        "fields": {
+            "user": 8,
+            "bio": "Tester Class users can only add tickets",
+            "avatar": "",
+            "user_type": 3
+        }
+    }
+    ]

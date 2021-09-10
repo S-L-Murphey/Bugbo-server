@@ -1,0 +1,30 @@
+[
+    {
+        "model": "bugboapi.bugpriority",
+        "pk": 1,
+        "fields": {
+            "label": "Immediate"
+        }
+    },
+    {
+        "model": "bugboapi.bugpriority",
+        "pk": 2,
+        "fields": {
+            "label": "High"
+        }
+    },
+    {
+        "model": "bugboapi.bugpriority",
+        "pk": 3,
+        "fields": {
+            "label": "Medium"
+        }
+    },
+    {
+        "model": "bugboapi.bugpriority",
+        "pk": 4,
+        "fields": {
+            "label": "Low"
+        }
+    }
+]
