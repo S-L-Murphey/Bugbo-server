@@ -5,6 +5,7 @@ from django.http import HttpResponseServerError
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers
+from django.db.models import Q
 from bugboapi.models import Bug, BugType, Employee, BugStatus, BugPriority
 
 class BugView(ViewSet):
@@ -117,10 +118,35 @@ class BugView(ViewSet):
         type = self.request.query_params.get('type', None) #pylint: disable=redefined-builtin
         if type is not None:
             bugs = bugs.filter(type__id=type)
+        
+        # Support filtering bugs by creator
+        #    http://localhost:8000/bugs?creator=1
+        creator = self.request.query_params.get('creator', None)
+        if creator is not None:
+            bugs = bugs.filter(creator__id=creator)
+        else:
+            bugs = Bug.objects.all()
 
         serializer = BugSerializer(
             bugs, many=True, context={'request': request})
         return Response(serializer.data)
+
+    def search(self, request):
+        """Handle Get requests to bugs resource by title search
+
+        Returns:
+            Response -- JSON serialized list of bugs/tickets which match the search text
+        """
+        search_text = self.request.query_params.get('q', None)
+
+        bugs = Bug.objects.filter(
+            Q(title__contains=search_text)
+        )
+
+        serializer = BugSerializer(
+            bugs, many=True, context={'request': request})
+        return Response(serializer.data)
+
 
 class BugSerializer(serializers.ModelSerializer):
     """JSON serializer for bugs
