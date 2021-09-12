@@ -3,3 +3,4 @@ from .bug_type import BugTypeView
 from .bug import BugView
 from .bug_status import BugStatusView
 from .tag import TagView
+from .bug_priority import BugPriorityView
