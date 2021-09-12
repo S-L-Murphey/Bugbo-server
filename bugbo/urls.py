@@ -17,11 +17,12 @@ from django.contrib import admin
 from rest_framework import routers
 from django.conf.urls import include
 from django.urls import path
-from bugboapi.views import register_user, login_user, BugTypeView, BugView
+from bugboapi.views import register_user, login_user, BugTypeView, BugView, BugStatusView
 
 router = routers.DefaultRouter(trailing_slash=False)
 router.register(r'bugtypes', BugTypeView, 'bugtype')
 router.register(r'bugs', BugView, 'bug')
+router.register(r'bugstatuses', BugStatusView, 'bugstatus')
 
 urlpatterns = [
     path('', include(router.urls)),
