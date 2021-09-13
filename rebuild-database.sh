@@ -16,4 +16,3 @@ python3 ./manage.py loaddata bugs
 python3 ./manage.py loaddata comments
 python3 ./manage.py loaddata bug_tags
 python3 ./manage.py loaddata bug_projects
-python3 ./manage.py loaddata bug_owners
