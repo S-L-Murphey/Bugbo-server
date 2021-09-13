@@ -23,6 +23,7 @@ class BugView(ViewSet):
         bug_status = BugStatus.objects.get(pk=request.data["status"])
         bug_priority = BugPriority.objects.get(pk=request.data["priority"])
         bug_type = BugType.objects.get(pk=request.data["type"])
+        bug_owner = BugType.objects.get(pk=request.data["owner"])
 
         # Create a new Python instance of the Bug class
         # and set its properties from what was sent in the
@@ -35,6 +36,7 @@ class BugView(ViewSet):
         bug.status = bug_status
         bug.priority = bug_priority
         bug.type = bug_type
+        bug.owner = bug_owner
 
         try:
             bug.save()
@@ -71,6 +73,7 @@ class BugView(ViewSet):
         bug_status = BugStatus.objects.get(pk=request.data["status"])
         bug_priority = BugPriority.objects.get(pk=request.data["priority"])
         bug_type = BugType.objects.get(pk=request.data["type"])
+        bug_owner = BugType.objects.get(pk=request.data["owner"])
 
         bug = Bug.objects.get(pk=pk)
         bug.title = request.data["title"]
@@ -80,6 +83,7 @@ class BugView(ViewSet):
         bug.status = bug_status
         bug.priority = bug_priority
         bug.type = bug_type
+        bug.owner = bug_owner
         bug.save()
 
         # 204 status code means everything worked but the
@@ -124,8 +128,14 @@ class BugView(ViewSet):
         creator = self.request.query_params.get('creator', None)
         if creator is not None:
             bugs = bugs.filter(creator__id=creator)
-        else:
-            bugs = Bug.objects.all()
+        
+
+        # Support filtering bugs by owner
+        #    http://localhost:8000/bugs?owner=1
+        owner = self.request.query_params.get('owner', None)
+        if owner is not None:
+            bugs = bugs.filter(owner__id=owner)
+        
 
         serializer = BugSerializer(
             bugs, many=True, context={'request': request})
@@ -156,5 +166,5 @@ class BugSerializer(serializers.ModelSerializer):
     """
     class Meta:
         model = Bug
-        fields = ('id', 'title', 'description', 'entry_date', 'creator', 'status', 'priority', 'type')
+        fields = ('id', 'title', 'description', 'entry_date', 'creator', 'status', 'priority', 'type', 'owner')
         depth = 1
