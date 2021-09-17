@@ -6,7 +6,7 @@ from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers
 from django.db.models import Q
-from bugboapi.models import Bug, BugType, Employee, BugStatus, BugPriority
+from bugboapi.models import Bug, BugType, Employee, BugStatus, BugPriority, BugTag
 
 class BugView(ViewSet):
     """Bugbo bugs/tikcets"""
@@ -19,11 +19,9 @@ class BugView(ViewSet):
         """
         # Uses the token passed in the `Authorization` header
         employee = Employee.objects.get(user=request.auth.user)
-
-        bug_status = BugStatus.objects.get(pk=request.data["status"])
         bug_priority = BugPriority.objects.get(pk=request.data["priority"])
         bug_type = BugType.objects.get(pk=request.data["type"])
-        bug_owner = BugType.objects.get(pk=request.data["owner"])
+        #bug_owner = BugType.objects.get(pk=request.data["owner"])
 
         # Create a new Python instance of the Bug class
         # and set its properties from what was sent in the
@@ -33,10 +31,9 @@ class BugView(ViewSet):
         bug.description = request.data["description"]
         bug.entry_date = request.data["entry_date"]
         bug.creator = employee
-        bug.status = bug_status
         bug.priority = bug_priority
         bug.type = bug_type
-        bug.owner = bug_owner
+        #bug.owner = bug_owner
 
         try:
             bug.save()
@@ -166,5 +163,5 @@ class BugSerializer(serializers.ModelSerializer):
     """
     class Meta:
         model = Bug
-        fields = ('id', 'title', 'description', 'entry_date', 'creator', 'status', 'priority', 'type', 'owner')
-        depth = 1
+        fields = ('id', 'title', 'description', 'entry_date', 'creator', 'status', 'priority', 'type', 'owner', 'tags')
+        depth = 2

@@ -5,4 +5,12 @@
         "--load-plugins=pylint_django",
         "--django-settings-module=bugbo.settings",
     ],
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "name": "connection",
+            "database": "db.sqlite3"
+        }
+    ],
 }
