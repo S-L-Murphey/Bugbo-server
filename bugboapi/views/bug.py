@@ -37,6 +37,8 @@ class BugView(ViewSet):
 
         try:
             bug.save()
+
+            bug.tags.set(request.data["tags"])
             serializer = BugSerializer(bug, context={'request': request})
             return Response(serializer.data)
         except ValidationError as ex:
@@ -70,7 +72,7 @@ class BugView(ViewSet):
         bug_status = BugStatus.objects.get(pk=request.data["status"])
         bug_priority = BugPriority.objects.get(pk=request.data["priority"])
         bug_type = BugType.objects.get(pk=request.data["type"])
-        bug_owner = BugType.objects.get(pk=request.data["owner"])
+        bug_owner = Employee.objects.get(pk=request.data["owner"])
 
         bug = Bug.objects.get(pk=pk)
         bug.title = request.data["title"]
@@ -82,6 +84,7 @@ class BugView(ViewSet):
         bug.type = bug_type
         bug.owner = bug_owner
         bug.save()
+        bug.tags.set(request.data["tags"])
 
         # 204 status code means everything worked but the
         # server is not sending back any data in the response
