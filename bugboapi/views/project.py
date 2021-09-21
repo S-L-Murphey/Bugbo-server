@@ -72,25 +72,8 @@ class ProjectView(ViewSet):
         project.name = request.data["name"]
         project.description = request.data["description"]
         
-        '''
-        assignees = ProjectUser.objects.filter(project__id=pk)
-        for assignee in assignees:
-            if assignee.project == project:
-                assignee.delete()
-        new_assignees = request.data["assignees"]
-        for new_assignee in new_assignees:
-            project.assignees.add(new_assignee["id"])
-        '''
-        ''' bugs = BugProject.objects.filter(project__id=pk)
-        for bug in bugs:
-            if bug.project == project:
-                bug.delete()
-        new_bugs = request.data["bugs"]
-        for new_bug in new_bugs:
-            project.bugs.add(new_bug["id"])
-        '''
         project.save()
-        
+
         project.bugs.set(request.data["bugs"])
         project.assignees.set(request.data["assignees"])
 
