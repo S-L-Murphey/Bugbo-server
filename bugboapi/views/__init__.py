@@ -8,3 +8,4 @@ from .project import ProjectView
 from .project_user import ProjectUserView
 from .bug_tag import BugTagView
 from .employee import EmployeeView
+from .user_type import UserTypeView

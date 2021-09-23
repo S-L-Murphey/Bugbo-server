@@ -5,7 +5,7 @@ from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 
-from bugboapi.models import Employee
+from bugboapi.models import Employee, UserType
 
 @api_view(['POST'])
 @permission_classes([AllowAny])
@@ -43,7 +43,7 @@ def register_user(request):
     Method arguments:
       request -- The full HTTP request object
     '''
-
+    type = UserType.objects.get(pk=request.data["user_type"])
     # Create a new user by invoking the `create_user` helper method
     # on Django's built-in User model
     new_user = User.objects.create_user(
@@ -59,7 +59,7 @@ def register_user(request):
         bio=request.data['bio'],
         user=new_user,
         avatar=request.data['avatar'],
-        user_type=request.data['user_type']
+        user_type=type
     )
 
     # Use the REST Framework's token generator on the new user account
