@@ -6,10 +6,13 @@ from rest_framework import serializers
 from rest_framework import status
 from django.core.exceptions import ValidationError
 from bugboapi.models import Tag
-
+from rest_framework.permissions import DjangoModelPermissions
 
 class TagView(ViewSet):
     """Bugbo bug/ticket tags"""
+
+    permission_classes = [ DjangoModelPermissions ]
+    queryset = Tag.objects.none()
 
     def create(self, request):
         """Handle POST operations

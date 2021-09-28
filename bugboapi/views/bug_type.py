@@ -6,10 +6,14 @@ from rest_framework import serializers
 from rest_framework import status
 from django.core.exceptions import ValidationError
 from bugboapi.models import BugType
+from rest_framework.permissions import DjangoModelPermissions
 
 
 class BugTypeView(ViewSet):
     """Level up bug types"""
+
+    permission_classes = [ DjangoModelPermissions ]
+    queryset = BugType.objects.none()
 
     def create(self, request):
         """Handle POST operations

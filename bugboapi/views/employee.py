@@ -4,8 +4,13 @@ from rest_framework.response import Response
 from rest_framework import serializers
 from django.contrib.auth.models import User #pylint: disable=imported-auth-user
 from bugboapi.models import Employee, UserType
+from rest_framework.permissions import DjangoModelPermissions
 
 class EmployeeView(ViewSet):
+
+    permission_classes = [ DjangoModelPermissions ]
+    queryset = Employee.objects.none()
+
     def list(self, request):
 
         type = self.request.query_params.get('type', None)

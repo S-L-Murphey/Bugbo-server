@@ -6,10 +6,14 @@ from rest_framework import serializers
 from rest_framework import status
 from django.core.exceptions import ValidationError
 from bugboapi.models import BugPriority
+from rest_framework.permissions import DjangoModelPermissions
 
 
 class BugPriorityView(ViewSet):
     """Level up bug priorities"""
+
+    permission_classes = [ DjangoModelPermissions ]
+    queryset = BugPriority.objects.none()
 
     def create(self, request):
         """Handle POST operations

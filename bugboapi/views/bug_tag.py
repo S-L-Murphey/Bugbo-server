@@ -5,8 +5,12 @@ from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers
 from bugboapi.models import Bug, Tag, BugTag
+from rest_framework.permissions import DjangoModelPermissions
 
 class BugTagView(ViewSet):
+
+    permission_classes = [ DjangoModelPermissions ]
+    queryset = BugTag.objects.none()
     
     def create(self, request):
         bug_tag = BugTag()

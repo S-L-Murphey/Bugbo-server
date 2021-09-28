@@ -6,11 +6,15 @@ from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers
 from django.contrib.auth.models import User #pylint: disable=imported-auth-user
-from bugboapi.models import Project, ProjectUser, BugProject, Employee, Bug
+from bugboapi.models import Project
+from rest_framework.permissions import DjangoModelPermissions
 
 
 class ProjectView(ViewSet):
     """Bugbo projects"""
+
+    permission_classes = [ DjangoModelPermissions ]
+    queryset = Project.objects.none()
 
     def create(self, request):
         """Handle POST operations

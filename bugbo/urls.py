@@ -17,7 +17,7 @@ from django.contrib import admin
 from rest_framework import routers
 from django.conf.urls import include
 from django.urls import path
-from bugboapi.views import register_user, login_user, BugTypeView, BugView, BugStatusView, TagView, BugPriorityView, ProjectView, ProjectUserView, BugTagView, EmployeeView
+from bugboapi.views import register_user, login_user, BugTypeView, BugView, BugStatusView, TagView, BugPriorityView, ProjectView, ProjectUserView, BugTagView, EmployeeView, UserTypeView
 
 router = routers.DefaultRouter(trailing_slash=False)
 router.register(r'bugtypes', BugTypeView, 'bugtype')
@@ -29,6 +29,7 @@ router.register(r'projects', ProjectView, 'project')
 router.register(r'projectusers', ProjectUserView, 'projectuser')
 router.register(r'bugtags', BugTagView, 'bugtag')
 router.register(r'employees', EmployeeView, 'employee')
+router.register(r'usertypes', UserTypeView, 'usertype')
 
 
 urlpatterns = [
