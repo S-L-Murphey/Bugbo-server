@@ -5,9 +5,13 @@ from rest_framework.response import Response
 from rest_framework import serializers
 from django.core.exceptions import ValidationError
 from bugboapi.models import UserType
+from rest_framework.permissions import DjangoModelPermissions
 
 class UserTypeView(ViewSet):
     """Bugbo User Types"""
+
+    permission_classes = [ DjangoModelPermissions ]
+    queryset = UserType.objects.none()
 
     def list(self, request):
         """Handle GET requests to get all user types

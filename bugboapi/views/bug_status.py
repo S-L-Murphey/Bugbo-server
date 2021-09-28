@@ -6,10 +6,14 @@ from rest_framework import serializers
 from rest_framework import status
 from django.core.exceptions import ValidationError
 from bugboapi.models import BugStatus
+from rest_framework.permissions import DjangoModelPermissions
 
 
 class BugStatusView(ViewSet):
     """Bugbo bug status"""
+
+    permission_classes = [ DjangoModelPermissions ]
+    queryset = BugStatus.objects.none()
 
     def create(self, request):
         """Handle POST operations

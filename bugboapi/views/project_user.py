@@ -6,10 +6,14 @@ from rest_framework import serializers
 from rest_framework import status
 from django.core.exceptions import ValidationError
 from bugboapi.models import ProjectUser, Project, Employee
+from rest_framework.permissions import DjangoModelPermissions
 
 
 class ProjectUserView(ViewSet):
     """Level up project users"""
+
+    permission_classes = [ DjangoModelPermissions ]
+    queryset = ProjectUser.objects.none()
 
     def create(self, request):
         """Handle POST operations

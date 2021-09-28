@@ -6,10 +6,14 @@ from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers
 from django.db.models import Q
-from bugboapi.models import Bug, BugType, Employee, BugStatus, BugPriority, BugTag
+from bugboapi.models import Bug, BugType, Employee, BugStatus, BugPriority
+from rest_framework.permissions import DjangoModelPermissions
 
 class BugView(ViewSet):
     """Bugbo bugs/tikcets"""
+
+    permission_classes = [ DjangoModelPermissions ]
+    queryset = Bug.objects.none()
 
     def create(self, request):
         """Handle POST operations
